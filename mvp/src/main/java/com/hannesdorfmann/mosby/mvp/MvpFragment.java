@@ -17,11 +17,10 @@
 package com.hannesdorfmann.mosby.mvp;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import com.hannesdorfmann.mosby.mvp.delegate.FragmentMvpDelegateImpl;
 import com.hannesdorfmann.mosby.mvp.delegate.FragmentMvpDelegate;
@@ -87,7 +86,7 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
   }
 
   @Override public boolean shouldInstanceBeRetained() {
-    FragmentActivity activity = getActivity();
+    Activity activity = getActivity();
     boolean changingConfig = activity != null && activity.isChangingConfigurations();
     return getRetainInstance() && changingConfig;
   }
